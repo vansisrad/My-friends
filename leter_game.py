@@ -10,7 +10,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Ask user for their name
-name = st.text_input("Enter your name to receive your letter:", "").strip()
+name = st.text_input("Enter your name to receive your letter:", "")
 
 # Messages for each friend
 letters = {
@@ -20,19 +20,21 @@ letters = {
     "samridhi": "Samridhi 🦆 — Helloooooooooooooooo SAMMMMMMMMMMMMMMM. The mom of our group, the most understanding and caring friend I've ever had. Mera dinn bhi agar bura jaa rha hota tha aur aap room aate thein na, mera mood apne aapk sahi ho jaata tha. It’s the energy you brought. Ive never felt negative around you, ive always felt like sab acha kyun hai itna. It became better for me when you started coming at 7 am In the morning, tab toh mera poora din acha jaata tha. I don’t think you understand how and where you stand in my life. Youre the most precious osul I have ever met. Thank you for impacting my life in such a wholesome and with such love. Sometimes I just used to come in ur room to feel ur presence and be happy. I miss u everytime I see a friend group playing games, I miss you everytime I see people doing yoga in the morning and a little extra when I see reels of desi dance trends on insta, its like aajkal sab aapki hi yaad dillata hai. I feel sad when I don’t feel the same positive and homely feeling with others and think who will make me feel this way now? But samridhi whenever I felt sad you were always there to talk to me, even tho you were dealing with your own problems you still listened you still patted my back, you still said “vanshika kuch khaalo, kuch peeogi?” Mughse ab yeh sab kon puchega. Main kisko hasaungi aur kiski baton pe itna hasoongi, kiske paas jaungi jab sab annoy kar rahein hote hai aur ek sane person ke paas jaaakr sabki chugli karni hoti hai, Kisko dekhungi subah yoga karte heui, kisko padhaungi exams ke liye?? \nKoi na. I wish in every Janam we are friends like this, in every universe we have rooms next to each other, in every universe I see you dancing and see your reels,in every universe I see your outfits, in every universe I see you stressing and pacing here and there for ur exams, in every universe I wake you up after 15 minutes just for you to tell me 5 minute aur, in every universe our thoughts and ideas match and we say “sahi mein yaar”, In every universe we tell eavh other ek aur game yaar, in every universe we stand in that balcony and see people and talk, in every universe we got to class together, in every universe I help you pack your stuff, in every universe you console me and say koi na. I hope im always a person you can rely on and be comfortable to talk to when you feel down because I love you so much and ill miss you even more.💗💗💗💗💗💗💗💗💗💗💗\n"
 }
 
-# Make sure input is lowercase
-name_lower = name.lower()
+# Lowercase name
+name_lower = name.lower().strip()
 
-# Show the letter if name is found
+# Show the letter if found
 if name_lower in letters:
+    letter_html = letters[name_lower]
     st.markdown(f"""
-        <div style='background-color: #ffe6f0; padding: 20px; border-radius: 20px; border: 2px solid pink;'>
-            <p style='color: #d63384; font-size: 20px; white-space: pre-wrap;'>{letters[name_lower]}</p>
-            <p style='text-align: right;'>💖 Love, Vanshika</p>
+        <div style='background-color: #ffe6f0; padding: 20px; border-radius: 20px; border: 2px solid pink; color: #d63384; font-size: 18px; line-height: 1.5; white-space: normal;'>
+            {letter_html}
+            <p style='text-align: right; margin-top: 15px;'>💖 Love, Vanshika</p>
         </div>
     """, unsafe_allow_html=True)
 elif name != "":
     st.warning("Oops! I couldn’t find your name in my special Hello Kitty list 😿")
 
-# Cute footer with spacing
-st.markdown("<br><br><center>🌸 Powered by Streamlit x Hello Kitty ✨</center>", unsafe_allow_html=True)
+# Cute footer
+st.markdown("<br><center>🌸 Powered by Streamlit x Hello Kitty ✨</center>", unsafe_allow_html=True)
+
